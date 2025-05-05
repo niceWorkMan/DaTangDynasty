@@ -7,7 +7,7 @@
             <key>itc_itt_Table.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1141,2},{615,457}}</string>
+                <string>{{493,1355},{615,457}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>itc_itt__mh.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1041,396},{64,64}}</string>
+                <string>{{858,1956},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>itc_itt_door.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{616,1399},{423,497}}</string>
+                <string>{{616,777},{423,497}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>itc_itt_fozhu.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{523,1399},{76,36}}</string>
+                <string>{{923,1885},{76,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>itc_itt_guanYin.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,777},{371,677}}</string>
+                <string>{{754,2},{371,677}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>itc_itt_lock.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{943,1898},{66,105}}</string>
+                <string>{{790,1921},{66,105}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>itc_itt_lockLight.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{875,1898},{66,105}}</string>
+                <string>{{752,1814},{66,105}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>itc_itt_mh2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{375,777},{489,620}}</string>
+                <string>{{2,1355},{489,620}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,7 +124,7 @@
             <key>itc_itt_num_.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{931,149},{63,69}}</string>
+                <string>{{885,1814},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +137,7 @@
             <key>itc_itt_num_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{866,149},{63,69}}</string>
+                <string>{{858,1885},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +150,7 @@
             <key>itc_itt_num_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,144},{63,69}}</string>
+                <string>{{820,1814},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -163,7 +163,7 @@
             <key>itc_itt_num_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{931,78},{63,69}}</string>
+                <string>{{475,1977},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>itc_itt_num_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{866,78},{63,69}}</string>
+                <string>{{410,1977},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -189,7 +189,7 @@
             <key>itc_itt_num_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,73},{63,69}}</string>
+                <string>{{345,1977},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -202,7 +202,7 @@
             <key>itc_itt_num_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,2},{63,69}}</string>
+                <string>{{280,1977},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -215,7 +215,7 @@
             <key>itc_itt_num_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1076,1974},{63,69}}</string>
+                <string>{{215,1977},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -228,7 +228,7 @@
             <key>itc_itt_num_9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1011,1974},{63,69}}</string>
+                <string>{{150,1977},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -241,7 +241,7 @@
             <key>itc_itt_outDoor.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1041,199},{97,195}}</string>
+                <string>{{1100,1814},{97,195}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -254,7 +254,7 @@
             <key>itc_itt_outDoor_Light.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1041,2},{97,195}}</string>
+                <string>{{1001,1814},{97,195}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -267,7 +267,7 @@
             <key>itc_itt_shouJuan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{375,1399},{146,48}}</string>
+                <string>{{2,1977},{146,48}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -280,7 +280,7 @@
             <key>itc_itt_shouJuan2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{616,1898},{257,133}}</string>
+                <string>{{493,1814},{257,133}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -293,7 +293,7 @@
             <key>itc_itt_shouJuan4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1456},{612,576}}</string>
+                <string>{{2,777},{612,576}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -306,7 +306,7 @@
             <key>itc_itt_stone.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{866,2},{123,74}}</string>
+                <string>{{665,1949},{123,74}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -319,7 +319,7 @@
             <key>itc_itt_stoneLight.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1011,1898},{123,74}}</string>
+                <string>{{540,1949},{123,74}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -339,7 +339,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:305a1d36a16e5ac0f373138bef543f76:8bc5c5d711aae4021a438f1afa1a2aa8:fbabe6384cf43245535d1a9cb1a23934$</string>
+            <string>$TexturePacker:SmartUpdate:212bd4e0449b7523f1d0d056f4a34d23:8bc5c5d711aae4021a438f1afa1a2aa8:fbabe6384cf43245535d1a9cb1a23934$</string>
             <key>textureFileName</key>
             <string>appearsInTheTemple.png</string>
         </dict>
