@@ -4,8 +4,10 @@ import {
   Button,
   Component,
   director,
+  instantiate,
   JsonAsset,
   Node,
+  Prefab,
   resources,
   Size,
   size,
@@ -13,9 +15,12 @@ import {
   SpriteAtlas,
   SpriteFrame,
   UITransform,
+  Vec2,
+  Vec3,
 } from "cc";
 import { UIManager } from "./UIManager";
 import { AtlasManager } from "./AtlasManager";
+import { dialogue } from "../dialogue/dialogue";
 
 const { ccclass, property } = _decorator;
 
@@ -79,25 +84,75 @@ export class GameManager extends Component {
    */
   private initGameConf() {
     //图集通过配置文件加载
-    resources.load("config/altlasCof", JsonAsset, (err, jsonAsset) => {
+    resources.load("config/step", JsonAsset, (err, jsonAsset) => {
       if (err) {
         console.error("加载 JSON 文件失败:", err);
         return;
       }
 
-      // 访问 JSON 数据
-      const data = jsonAsset.json;
-      console.log("加载成功的 JSON 数据:", data);
-    });
+      //加载bundle
+      assetManager.loadBundle("netRes", (err, bundle) => {
+        if (err) {
+          console.error("加载 Bundle 失败:", err);
+          return;
+        }
 
-    assetManager.loadBundle("netRes", (err, bundle) => {
+        console.log("Bundle 加载成功:", bundle);
+        AtlasManager.Instance.netResBundle = bundle;
+
+        // 访问 JSON 数据
+        const data = jsonAsset.json;
+        console.log("加载成功的 JSON 数据:", data);
+        this._gameData = data;
+        this.GameStart();
+      });
+    });
+  }
+
+  private _gameData = {};
+  public set gameData(v) {
+    this._gameData = v;
+  }
+
+  public get gameData() {
+    return this._gameData;
+  }
+
+  private _dialogContent;
+
+  public set dialogContent(v) {
+    this._dialogContent = v;
+  }
+  public get dialogContent() {
+    return this._dialogContent;
+  }
+
+  //添加BuildUI
+  @property(Prefab) dialog: Prefab;
+
+  private GameStart() {
+    // var arr = this.gameData["level_01"];
+    // arr.forEach((element) => {
+
+    // });
+    var dialogkey = "config/dialog_" + this.gameData["level_01"][0].key;
+
+    console.log("dialogkey:",dialogkey)
+    resources.load(dialogkey, JsonAsset, (err, jsonAsset) => {
       if (err) {
-        console.error("加载 Bundle 失败:", err);
+        console.error("加载 JSON dialog 文件失败:", err);
         return;
       }
 
-      console.log("Bundle 加载成功:", bundle);
-      AtlasManager.Instance.netResBundle = bundle;
+      this._dialogContent = jsonAsset.json;
+      console.log("加载 JSON dialog 文件成功:", this._dialogContent);
+
+      var dialogueLayer = this.node.getChildByName("DialogueLayer");
+      var d = instantiate(this.dialog);
+      dialogueLayer.addChild(d);
+      d.position = new Vec3(0, -470, 0);
+      //设置所用对话  todo  当前设置的第一条
+      d.getComponent(dialogue).currentData=this._dialogContent[0]
     });
   }
 }
