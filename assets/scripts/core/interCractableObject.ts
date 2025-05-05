@@ -18,7 +18,7 @@ export class interCractableObject extends Component {
     onSuccessEvent: string = ""; // 自定义事件名，比如打开门，启动对话
 
     onClick() {
-        if (this.requiredItem === "" || GameManager.instance.hasItem(this.requiredItem)) {
+        if (this.requiredItem === "" || GameManager.Instance.hasItem(this.requiredItem)) {
             this.node.emit(this.onSuccessEvent);
         } else {
             console.log("需要道具：" + this.requiredItem);

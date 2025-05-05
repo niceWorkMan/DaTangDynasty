@@ -6,6 +6,6 @@ export class LevelManager {
 
     public goToNextScene() {
         this.currentSceneIndex += 1;
-        director.loadScene(`Level${GameManager.instance.currentLevel}_Scene${this.currentSceneIndex}`);
+        director.loadScene(`Level${GameManager.Instance.currentLevel}_Scene${this.currentSceneIndex}`);
     }
 }
