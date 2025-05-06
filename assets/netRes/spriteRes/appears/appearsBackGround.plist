@@ -53,7 +53,7 @@
             <key>size</key>
             <string>{2048,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5d391d72502ac4b2a6972b52fe305c1f:306f31da0ae4c341d34da22bb4a32e58:958465852b3efdb4e5e609a7b6a479d9$</string>
+            <string>$TexturePacker:SmartUpdate:af14a8565ac1f46227a66d1e19464706:306f31da0ae4c341d34da22bb4a32e58:958465852b3efdb4e5e609a7b6a479d9$</string>
             <key>textureFileName</key>
             <string>appearsBackGround.png</string>
         </dict>

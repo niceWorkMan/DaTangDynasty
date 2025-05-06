@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, LabelComponent, Node } from "cc";
+import { _decorator, Component, Label, LabelComponent, Node, tween } from "cc";
 import { GameManager } from "../core/GameManager";
 const { ccclass, property } = _decorator;
 
@@ -8,7 +8,7 @@ export class dialogue extends Component {
     console.log("start----------");
     this.defaultFirst();
 
-    this.node.getChildByName("Tips").on(Node.EventType.MOUSE_DOWN, (event) => {
+    this.node.getChildByName("Tips").on(Node.EventType.TOUCH_START, (event) => {
       this.next();
     });
   }
@@ -39,9 +39,11 @@ export class dialogue extends Component {
   public defaultFirst() {
     this.node.getChildByName("LabelTitle").getComponent(Label).string =
       this._currentData.dialogues[0].speaker;
-    this.node.getChildByName("LabelContent").getComponent(Label).string =
-      this._currentData.dialogues[0].text;
+    // this.node.getChildByName("LabelContent").getComponent(Label).string =
+    //   this._currentData.dialogues[0].text;
     this.oneLine = this._currentData.dialogues[0];
+
+    this.show(this._currentData.dialogues[0].text)
   }
 
   private updateInfo(key) {
@@ -50,9 +52,12 @@ export class dialogue extends Component {
 
     this.node.getChildByName("LabelTitle").getComponent(Label).string =
       itemInfo.speaker;
-    this.node.getChildByName("LabelContent").getComponent(Label).string =
-      itemInfo.text;
+    // this.node.getChildByName("LabelContent").getComponent(Label).string =
+    //   itemInfo.text;
     this.oneLine = itemInfo;
+
+    //逐字显示
+    this.show(itemInfo.text)
   }
 
   //查询获取一条
@@ -63,5 +68,31 @@ export class dialogue extends Component {
       }
     }
     return null;
+  }
+
+  //执行
+  show(content) {
+    this.currentIndex = 0;
+    this.node.getChildByName("LabelContent").getComponent(Label).string = "";
+    this.showTextWithTween(content);
+  }
+
+  private currentIndex = 0;
+  showTextWithTween(content: string) {
+    let interval = 0.1; // 每个字显示间隔时间（秒）
+
+    // 使用递归 tween 来逐字显示
+    const showNextChar = () => {
+      if (this.currentIndex >= content.length) return;
+
+      this.node.getChildByName("LabelContent").getComponent(Label).string +=
+        content[this.currentIndex];
+      this.currentIndex++;
+
+      // 使用 tween 延时执行下一个字符显示
+      tween(this.node).delay(interval).call(showNextChar).start();
+    };
+
+    showNextChar();
   }
 }

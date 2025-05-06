@@ -1,5 +1,6 @@
 import {
   _decorator,
+  AssetManager,
   assetManager,
   Button,
   Component,
@@ -40,9 +41,21 @@ export class GameManager extends Component {
     return this._instance;
   }
 
+  private _prefabMap = {};
+  private set prefabMap(v) {
+    this._prefabMap = v;
+  }
+  public get prefabMap() {
+    return this._prefabMap;
+  }
+
   start() {
     this.addListener();
-    this.initGameConf();
+    this.init();
+  }
+
+  async init() {
+    await this.initGameConf(); // 等待资源加载完成
   }
 
   update(deltaTime: number) {}
@@ -51,7 +64,7 @@ export class GameManager extends Component {
     this.node
       .getChildByName("TestLayer")
       .getChildByName("Button_Test")
-      .on(Node.EventType.MOUSE_DOWN, (event) => {
+      .on(Node.EventType.TOUCH_START, (event) => {
         this.click();
       });
   }
@@ -79,36 +92,6 @@ export class GameManager extends Component {
 
   public changeBg(imageName: string) {}
 
-  /**
-   * 初始化游戏配置
-   */
-  private initGameConf() {
-    //图集通过配置文件加载
-    resources.load("config/step", JsonAsset, (err, jsonAsset) => {
-      if (err) {
-        console.error("加载 JSON 文件失败:", err);
-        return;
-      }
-
-      //加载bundle
-      assetManager.loadBundle("netRes", (err, bundle) => {
-        if (err) {
-          console.error("加载 Bundle 失败:", err);
-          return;
-        }
-
-        console.log("Bundle 加载成功:", bundle);
-        AtlasManager.Instance.netResBundle = bundle;
-
-        // 访问 JSON 数据
-        const data = jsonAsset.json;
-        console.log("加载成功的 JSON 数据:", data);
-        this._gameData = data;
-        this.GameStart();
-      });
-    });
-  }
-
   private _gameData = {};
   public set gameData(v) {
     this._gameData = v;
@@ -127,32 +110,96 @@ export class GameManager extends Component {
     return this._dialogContent;
   }
 
-  //添加BuildUI
-  @property(Prefab) dialog: Prefab;
+  private prifabPaths;
+
+  private async initGameConf() {
+    try {
+      // 加载配置 JSON
+      const jsonAsset = await this.loadJson("config/step");
+      this._gameData = jsonAsset.json;
+
+      // 加载对话 JSON
+      const dialogKey = "config/dialog_" + this._gameData["level_01"][0].key;
+      const dialogAsset = await this.loadJson(dialogKey);
+      //加载Prefab JSON
+      const prifabPathAsset = await this.loadJson("config/prefabsList");
+      this.prifabPaths = prifabPathAsset.json;
+      console.log("prifabKeys:", this.prifabPaths);
+
+      // 加载资源 Bundle
+      //const bundleUrl="http://127.0.0.1:80/netRes"
+      const bundleUrl="netRes"
+      const bundle = await this.loadBundle(bundleUrl);
+      AtlasManager.Instance.netResBundle = bundle;
+
+      this._dialogContent = dialogAsset.json;
+      // 所有资源加载完成后，开始游戏
+      this.GameStart();
+    } catch (err) {
+      console.error("初始化游戏配置失败:", err);
+    }
+  }
+
+  private loadJson(path: string): Promise<JsonAsset> {
+    return new Promise((resolve, reject) => {
+      resources.load(path, JsonAsset, (err, jsonAsset) => {
+        if (err || !jsonAsset) {
+          reject(err);
+        } else {
+          resolve(jsonAsset);
+        }
+      });
+    });
+  }
+
+  private async loadBundle(name: string): Promise<AssetManager.Bundle> {
+    try {
+      const bundle = await this.loadBundleAsync(name);  // 首先加载 bundle
+      const loadPromises = this.prifabPaths.map((path) => this.loadPrefabAsync(bundle, path));  // 为每个 prefab 路径生成加载的 Promise
+      await Promise.all(loadPromises);  // 等待所有的加载操作完成
+      console.log("All prefabs loaded successfully");
+      return bundle;
+    } catch (err) {
+      console.error("Error loading bundle:", err);
+      throw err;  // 抛出错误，外部调用者可以捕获
+    }
+  }
+  
+  // 异步加载 bundle
+  private loadBundleAsync(name: string): Promise<AssetManager.Bundle> {
+    return new Promise((resolve, reject) => {
+      assetManager.loadBundle(name, (err, bundle) => {
+        if (err || !bundle) {
+          reject(err);
+        } else {
+          resolve(bundle);
+        }
+      });
+    });
+  }
+  
+  // 异步加载单个 prefab
+  private loadPrefabAsync(bundle: AssetManager.Bundle, path: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      bundle.load(path, Prefab, (err, prefab) => {
+        if (err) {
+          reject(err);
+        } else {
+          const dicName = path.indexOf("/") === -1 ? path : path.split('/').pop() || "";
+          this.prefabMap[dicName] = prefab;
+          resolve();  // 加载成功
+        }
+      });
+    });
+  }
 
   private GameStart() {
-    // var arr = this.gameData["level_01"];
-    // arr.forEach((element) => {
+    console.log("所有资源加载完毕，游戏开始");
 
-    // });
-    var dialogkey = "config/dialog_" + this.gameData["level_01"][0].key;
-
-    console.log("dialogkey:",dialogkey)
-    resources.load(dialogkey, JsonAsset, (err, jsonAsset) => {
-      if (err) {
-        console.error("加载 JSON dialog 文件失败:", err);
-        return;
-      }
-
-      this._dialogContent = jsonAsset.json;
-      console.log("加载 JSON dialog 文件成功:", this._dialogContent);
-
-      var dialogueLayer = this.node.getChildByName("DialogueLayer");
-      var d = instantiate(this.dialog);
-      dialogueLayer.addChild(d);
-      d.position = new Vec3(0, -470, 0);
-      //设置所用对话  todo  当前设置的第一条
-      d.getComponent(dialogue).currentData=this._dialogContent[0]
-    });
+    const dialogueLayer = this.node.getChildByName("DialogueLayer");
+    const d = instantiate(this.prefabMap["Dialogue"]);
+    dialogueLayer.addChild(d);
+    d.position = new Vec3(0, -470, 0);
+    d.getComponent(dialogue).currentData = this._dialogContent[0];
   }
 }

@@ -6,7 +6,7 @@
   "files": [],
   "subMetas": {},
   "userData": {
-    "isBundle": true,
-    "bundleName": "netRes"
+    "bundleName": "netRes",
+    "isBundle": true
   }
 }

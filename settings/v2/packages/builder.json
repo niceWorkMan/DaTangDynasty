@@ -25,8 +25,12 @@
               "isRemote": false,
               "compressionType": "merge_dep"
             },
-            "configMode": "fallback",
-            "overwriteSettings": {}
+            "configMode": "overwrite",
+            "overwriteSettings": {
+              "wechatgame": {
+                "isRemote": true
+              }
+            }
           }
         }
       }

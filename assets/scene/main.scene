@@ -423,7 +423,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "863f02b3-b254-4bc1-89b5-70cbc21cf857@8d1d1",
+      "__uuid__": "d08e9265-13f2-4462-8d0c-43eb610204bd@8d1d1",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -1055,7 +1055,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "c613a052-341d-407d-95c4-84f5a8953a72@771b0",
+      "__uuid__": "f7e01e1b-49a1-49da-9249-19b6e0b05022@771b0",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -1114,10 +1114,7 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": {
-      "__uuid__": "c613a052-341d-407d-95c4-84f5a8953a72@771b0",
-      "__expectedType__": "cc.SpriteFrame"
-    },
+    "_normalSprite": null,
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,
@@ -1130,7 +1127,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Button_SYL",
+    "_name": "Button_ShenYin",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -1358,7 +1355,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "c613a052-341d-407d-95c4-84f5a8953a72@950f4",
+      "__uuid__": "f7e01e1b-49a1-49da-9249-19b6e0b05022@950f4",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -1430,7 +1427,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Button_SYL",
+    "_name": "Button_ShouYao",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -1658,7 +1655,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "c613a052-341d-407d-95c4-84f5a8953a72@950f4",
+      "__uuid__": "f7e01e1b-49a1-49da-9249-19b6e0b05022@72ef5",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -1717,10 +1714,7 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": {
-      "__uuid__": "c613a052-341d-407d-95c4-84f5a8953a72@950f4",
-      "__expectedType__": "cc.SpriteFrame"
-    },
+    "_normalSprite": null,
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,
@@ -1775,7 +1769,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": 241.071,
       "y": 0,
       "z": 0
     },
@@ -1830,7 +1824,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 278.3,
+      "x": 1.95,
       "y": 0,
       "z": 0
     },
@@ -2168,10 +2162,6 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "dialog": {
-      "__uuid__": "74fd2a20-82c9-40dc-81ef-3fbb03b7e843",
-      "__expectedType__": "cc.Prefab"
-    },
     "_id": "5b7qEP1tlFHKmKeNYBE0hE"
   },
   {
