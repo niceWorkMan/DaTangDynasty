@@ -1,5 +1,7 @@
 import {
   _decorator,
+  Animation,
+  AnimationClip,
   AssetManager,
   assetManager,
   Button,
@@ -41,12 +43,22 @@ export class GameManager extends Component {
     return this._instance;
   }
 
+  //存储prefab
   private _prefabMap = {};
   private set prefabMap(v) {
     this._prefabMap = v;
   }
   public get prefabMap() {
     return this._prefabMap;
+  }
+
+  //动画存储
+  private _animClipMap = {};
+  private set animClipMap(v) {
+    this._animClipMap = v;
+  }
+  public get animClipMap() {
+    return this._animClipMap;
   }
 
   start() {
@@ -111,6 +123,7 @@ export class GameManager extends Component {
   }
 
   private prifabPaths;
+  private animclipPaths;
 
   private async initGameConf() {
     try {
@@ -124,11 +137,13 @@ export class GameManager extends Component {
       //加载Prefab JSON
       const prifabPathAsset = await this.loadJson("config/prefabsList");
       this.prifabPaths = prifabPathAsset.json;
+      const animclipPathAsset = await this.loadJson("config/animclipsList");
+      this.animclipPaths = animclipPathAsset.json;
       console.log("prifabKeys:", this.prifabPaths);
 
       // 加载资源 Bundle
       //const bundleUrl="http://127.0.0.1:80/netRes"
-      const bundleUrl="netRes"
+      const bundleUrl = "netRes";
       const bundle = await this.loadBundle(bundleUrl);
       AtlasManager.Instance.netResBundle = bundle;
 
@@ -154,17 +169,26 @@ export class GameManager extends Component {
 
   private async loadBundle(name: string): Promise<AssetManager.Bundle> {
     try {
-      const bundle = await this.loadBundleAsync(name);  // 首先加载 bundle
-      const loadPromises = this.prifabPaths.map((path) => this.loadPrefabAsync(bundle, path));  // 为每个 prefab 路径生成加载的 Promise
-      await Promise.all(loadPromises);  // 等待所有的加载操作完成
-      console.log("All prefabs loaded successfully");
+      const bundle = await this.loadBundleAsync(name);
+
+      // 合并所有加载操作：prefab 和 animation clip
+      const loadTasks: Promise<void>[] = [
+        ...this.prifabPaths.map((path) => this.loadPrefabAsync(bundle, path)),
+        ...this.animclipPaths.map((path) =>
+          this.loadAnimationClipAsync(bundle, path)
+        ),
+      ];
+
+      await Promise.all(loadTasks); // 等待所有资源加载完成
+      console.log("All prefabs and animation clips loaded successfully");
+
       return bundle;
     } catch (err) {
       console.error("Error loading bundle:", err);
-      throw err;  // 抛出错误，外部调用者可以捕获
+      throw err;
     }
   }
-  
+
   // 异步加载 bundle
   private loadBundleAsync(name: string): Promise<AssetManager.Bundle> {
     return new Promise((resolve, reject) => {
@@ -177,17 +201,40 @@ export class GameManager extends Component {
       });
     });
   }
-  
+
   // 异步加载单个 prefab
-  private loadPrefabAsync(bundle: AssetManager.Bundle, path: string): Promise<void> {
+  private loadPrefabAsync(
+    bundle: AssetManager.Bundle,
+    path: string
+  ): Promise<void> {
     return new Promise((resolve, reject) => {
       bundle.load(path, Prefab, (err, prefab) => {
         if (err) {
           reject(err);
         } else {
-          const dicName = path.indexOf("/") === -1 ? path : path.split('/').pop() || "";
+          const dicName =
+            path.indexOf("/") === -1 ? path : path.split("/").pop() || "";
           this.prefabMap[dicName] = prefab;
-          resolve();  // 加载成功
+          resolve(); // 加载成功
+        }
+      });
+    });
+  }
+
+  //异步加载动画
+  private loadAnimationClipAsync(
+    bundle: AssetManager.Bundle,
+    path: string
+  ): Promise<void> {
+    return new Promise((resolve, reject) => {
+      bundle.load(path, AnimationClip, (err, clip) => {
+        if (err) {
+          reject(err);
+        } else {
+          const dicName =
+            path.indexOf("/") === -1 ? path : path.split("/").pop() || "";
+          this.animClipMap[dicName] = clip;
+          resolve();
         }
       });
     });
@@ -199,7 +246,28 @@ export class GameManager extends Component {
     const dialogueLayer = this.node.getChildByName("DialogueLayer");
     const d = instantiate(this.prefabMap["Dialogue"]);
     dialogueLayer.addChild(d);
-    d.position = new Vec3(0, -470, 0);
+    d.position = new Vec3(0, 300, 0);
     d.getComponent(dialogue).currentData = this._dialogContent[0];
+
+    setTimeout(() => {
+     this.PlayShouYaoAnim("anim_beimingzhonggu_clip")
+    }, 3000);
+  }
+
+
+
+  public PlayShouYaoAnim(clipName){
+    const AnimationLayer = this.node.getChildByName("AnimationLayer");
+    const animNode = instantiate(
+      this.prefabMap["anim_beimingzhonggu_prefab"]
+    );
+    AnimationLayer.removeAllChildren()
+    AnimationLayer.addChild(animNode);
+
+    var anim = animNode.getComponent(Animation);
+    const clip = this.animClipMap[clipName];
+
+    anim.defaultClip = clip; // 明确设置 defaultClip
+    anim.play(); // 播放
   }
 }
