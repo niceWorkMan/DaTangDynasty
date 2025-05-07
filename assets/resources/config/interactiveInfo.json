@@ -1,0 +1,17 @@
+{
+    "stone":{
+        "Posiotn":{
+            "x":0,
+            "y":0
+        },
+        "Size":{
+            "x":10,
+            "y":10
+        },
+        "Texture":{
+            "plistPath":"spriteRes/normal/normal",
+            "spriteName":"itc_itt_fozhu"
+        }
+
+    }
+}

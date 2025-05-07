@@ -90,7 +90,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 375,
-      "y": 667,
+      "y": 667.0000000000001,
       "z": 0
     },
     "_lrot": {
@@ -175,7 +175,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 667,
+    "_orthoHeight": 667.0000000000001,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -429,7 +429,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "d08e9265-13f2-4462-8d0c-43eb610204bd@8d1d1",
+      "__uuid__": "d08e9265-13f2-4462-8d0c-43eb610204bd@7ce6e",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -1439,8 +1439,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 131.27991042105285,
-      "height": 25.2
+      "width": 131.2478224471724,
+      "height": 25.200000000000003
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1472,7 +1472,7 @@
     "_string": "ScrollView content",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
-    "_actualFontSize": 16.15592203898051,
+    "_actualFontSize": 16.20989505247376,
     "_fontSize": 16,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -1946,7 +1946,7 @@
     "_string": "button",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.194902548725636,
+    "_actualFontSize": 20.262368815592204,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2246,7 +2246,7 @@
     "_string": "button",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.194902548725636,
+    "_actualFontSize": 20.262368815592204,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2546,7 +2546,7 @@
     "_string": "button",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.194902548725636,
+    "_actualFontSize": 20.262368815592204,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2917,7 +2917,7 @@
     "_string": "button",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.194902548725636,
+    "_actualFontSize": 20.262368815592204,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -3162,7 +3162,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 750,
-      "height": 1334
+      "height": 1334.0000000000002
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

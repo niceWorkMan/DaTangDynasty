@@ -1,5 +1,6 @@
 import { _decorator, Component, Label, LabelComponent, Node, tween } from "cc";
 import { GameManager } from "../core/GameManager";
+import { AtlasManager } from "../core/AtlasManager";
 const { ccclass, property } = _decorator;
 
 @ccclass("dialogue")
@@ -42,8 +43,8 @@ export class dialogue extends Component {
     // this.node.getChildByName("LabelContent").getComponent(Label).string =
     //   this._currentData.dialogues[0].text;
     this.oneLine = this._currentData.dialogues[0];
-
-    this.show(this._currentData.dialogues[0].text)
+    //默认显示第一条
+    this.show(this._currentData.dialogues[0]);
   }
 
   private updateInfo(key) {
@@ -57,7 +58,7 @@ export class dialogue extends Component {
     this.oneLine = itemInfo;
 
     //逐字显示
-    this.show(itemInfo.text)
+    this.show(itemInfo);
   }
 
   //查询获取一条
@@ -71,10 +72,13 @@ export class dialogue extends Component {
   }
 
   //执行
-  show(content) {
+  show(itemInfo) {
     this.currentIndex = 0;
     this.node.getChildByName("LabelContent").getComponent(Label).string = "";
-    this.showTextWithTween(content);
+    this.showTextWithTween(itemInfo.text);
+
+    //检查触发
+    this.checkTrigger(itemInfo);
   }
 
   private currentIndex = 0;
@@ -94,5 +98,31 @@ export class dialogue extends Component {
     };
 
     showNextChar();
+  }
+
+  checkTrigger(itemInfo) {
+    console.log("检查了");
+    
+    //背景
+    var background = itemInfo.background;
+    if (background) {
+      AtlasManager.Instance.loadBackGround(
+        background.plistPath,
+        background.spriteName
+      );
+    }
+
+    var trigger = itemInfo.trigger;
+    //触发事件
+    if (trigger) {
+      //触发类型是交互
+      if (trigger.Interactive) {
+        trigger.Interactive.forEach((element) => {
+          var info = GameManager.Instance.interactiveInfo;
+          var data = info[element];
+          console.log("触发:", data);
+        });
+      }
+    }
   }
 }

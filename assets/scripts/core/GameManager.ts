@@ -9,6 +9,7 @@ import {
   director,
   instantiate,
   JsonAsset,
+  log,
   Node,
   Prefab,
   resources,
@@ -82,7 +83,10 @@ export class GameManager extends Component {
   }
 
   click() {
-    AtlasManager.Instance.loadBackGround("appears", "AnDuGeOutSide");
+    AtlasManager.Instance.loadBackGround(
+      "spriteRes/appears/appearsBackGround",
+      "AnDuGeOutSide"
+    );
   }
 
   public currentLevel: number = 0;
@@ -122,34 +126,41 @@ export class GameManager extends Component {
     return this._dialogContent;
   }
 
-  private prifabPaths;
-  private animclipPaths;
+  private prifabPaths; //配置Prefab的Json
+  private animclipPaths; //配置动画Clip的Json
+
+  private _interactiveInfo; //交互对象配置
+  public get interactiveInfo() {
+    return this._interactiveInfo;
+  }
 
   private async initGameConf() {
     try {
-      // 加载配置 JSON
-      const jsonAsset = await this.loadJson("config/step");
-      this._gameData = jsonAsset.json;
-
-      // 加载对话 JSON
-      const dialogKey = "config/dialog_" + this._gameData["level_01"][0].key;
-      const dialogAsset = await this.loadJson(dialogKey);
       //加载Prefab JSON
       const prifabPathAsset = await this.loadJson("config/prefabsList");
       this.prifabPaths = prifabPathAsset.json;
       const animclipPathAsset = await this.loadJson("config/animclipsList");
       this.animclipPaths = animclipPathAsset.json;
       console.log("prifabKeys:", this.prifabPaths);
-
+      //加载交互道具配置
+      const interactiveInfoAsset = await this.loadJson(
+        "config/interactiveInfo"
+      );
+      this._interactiveInfo = interactiveInfoAsset.json;
+      console.log("_interactiveInfo:",this._interactiveInfo);
+      
       // 加载资源 Bundle
       //const bundleUrl="http://127.0.0.1:80/netRes"
       const bundleUrl = "netRes";
       const bundle = await this.loadBundle(bundleUrl);
       AtlasManager.Instance.netResBundle = bundle;
 
-      this._dialogContent = dialogAsset.json;
-      // 所有资源加载完成后，开始游戏
-      this.GameStart();
+      // 加载配置 JSON
+      const jsonAsset = await this.loadJson("config/step");
+      this._gameData = jsonAsset.json;
+
+      // 所有资源加载完成后，开始游戏    参数1  关卡索引  参数2   场景索引
+      this.GameStart(0, 0);
     } catch (err) {
       console.error("初始化游戏配置失败:", err);
     }
@@ -240,28 +251,29 @@ export class GameManager extends Component {
     });
   }
 
-  private GameStart() {
+  private async GameStart(levelIndex = 0, sceneIndex = 0) {
+    // 加载对话 JSON
+    const dialogKey = "config/dialog_" + this._gameData[levelIndex].key;
+    const dialogAsset = await this.loadJson(dialogKey);
+    this._dialogContent = dialogAsset.json;
+
     console.log("所有资源加载完毕，游戏开始");
 
     const dialogueLayer = this.node.getChildByName("DialogueLayer");
     const d = instantiate(this.prefabMap["Dialogue"]);
     dialogueLayer.addChild(d);
     d.position = new Vec3(0, 300, 0);
-    d.getComponent(dialogue).currentData = this._dialogContent[0];
+    d.getComponent(dialogue).currentData = this._dialogContent[sceneIndex];
 
     setTimeout(() => {
-     this.PlayShouYaoAnim("anim_beimingzhonggu_clip")
+      // this.PlayShouYaoAnim("anim_beimingzhonggu_clip")
     }, 3000);
   }
 
-
-
-  public PlayShouYaoAnim(clipName){
+  public PlayShouYaoAnim(clipName) {
     const AnimationLayer = this.node.getChildByName("AnimationLayer");
-    const animNode = instantiate(
-      this.prefabMap["anim_beimingzhonggu_prefab"]
-    );
-    AnimationLayer.removeAllChildren()
+    const animNode = instantiate(this.prefabMap["anim_beimingzhonggu_prefab"]);
+    AnimationLayer.removeAllChildren();
     AnimationLayer.addChild(animNode);
 
     var anim = animNode.getComponent(Animation);

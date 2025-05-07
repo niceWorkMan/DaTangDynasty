@@ -1,3 +1,3 @@
-{
-  "level_01": [{ "key": "appears", "_desc": "窥基" }]
-}
+[
+  { "key": "testGame", "_desc": "试玩关卡" }
+]

@@ -4,36 +4,36 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>AnDuGeInSide.png</key>
+            <key>temple_0001.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{576,0},{576,1025}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{576,1025}}</string>
+                <key>sourceSize</key>
+                <string>{576,1025}</string>
+            </dict>
+            <key>temple_0002.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{0,0},{576,1025}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{576,1025}}</string>
+                <key>sourceSize</key>
+                <string>{576,1025}</string>
+            </dict>
+            <key>temple_0003.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1152,0},{576,1024}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{576,1024}}</string>
-                <key>sourceSize</key>
-                <string>{576,1024}</string>
-            </dict>
-            <key>AnDuGeOutSide.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{576,0},{576,1024}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{576,1024}}</string>
-                <key>sourceSize</key>
-                <string>{576,1024}</string>
-            </dict>
-            <key>Temple0001.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{0,0},{576,1024}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -51,9 +51,9 @@
             <key>realTextureFileName</key>
             <string>appearsBackGround.png</string>
             <key>size</key>
-            <string>{2048,1024}</string>
+            <string>{1728,1025}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:af14a8565ac1f46227a66d1e19464706:306f31da0ae4c341d34da22bb4a32e58:958465852b3efdb4e5e609a7b6a479d9$</string>
+            <string>$TexturePacker:SmartUpdate:402fa5b616143ae5f8ca7200498be368:9d4eec381150b42db08d863da5e29881:958465852b3efdb4e5e609a7b6a479d9$</string>
             <key>textureFileName</key>
             <string>appearsBackGround.png</string>
         </dict>
