@@ -11,6 +11,10 @@
         "background": {
           "plistPath": "spriteRes/appears/appearsBackGround",
           "spriteName": "temple_0002"
+        },
+        "sceneSwicherPrefab": {
+          "name": "Temple",
+          "switchIndex": 0
         }
       },
 

@@ -10,6 +10,7 @@ import {
 import { GameManager } from "../core/GameManager";
 import { AtlasManager } from "../core/AtlasManager";
 import { UIManager } from "../core/UIManager";
+import { appearTemple } from "../sceneLit/appearTemple";
 const { ccclass, property } = _decorator;
 
 @ccclass("dialogue")
@@ -22,7 +23,7 @@ export class dialogue extends Component {
     this.defaultFirst();
 
     this.node.getChildByName("Tips").on(Node.EventType.TOUCH_START, (event) => {
-      if (this.isFree==true) {
+      if (this.isFree == true) {
         this.next();
         this.isFree = false;
       }
@@ -93,14 +94,15 @@ export class dialogue extends Component {
     this.showTextWithTween(itemInfo.text, () => {
       console.log("文字全部显示完毕");
       // 👉 在这里做后续操作，比如激活按钮、播放动画等
-      this.isFree=true
+      this.isFree = true;
+      //检查触发
+      this.checkTrigger(itemInfo);
     });
-
-    //检查触发
-    this.checkTrigger(itemInfo);
 
     //背景人物展示
     this.showNpc(itemInfo);
+    //显示场景
+    this.showScene(itemInfo);
   }
 
   private currentIndex = 0;
@@ -156,6 +158,42 @@ export class dialogue extends Component {
           GameManager.Instance.CallFunctionByName(Data.funcName, Data.param);
         });
       }
+    }
+  }
+
+  showScene(itemInfo) {
+    var gameManager = GameManager.Instance;
+    var sceneLayer = gameManager.node.getChildByName("SceneLayer");
+
+    const sceneSwicherPrefab = itemInfo.sceneSwicherPrefab;
+    if (!sceneSwicherPrefab) return;
+    const prefabName = itemInfo.sceneSwicherPrefab.name;
+    if (!prefabName) return;
+
+    // 检查是否已经存在该 prefab 的实例
+    const existing = sceneLayer.children.find(
+      (child) => child.name === prefabName
+    );
+
+    if (existing) {
+      // ✅ 已经存在该 prefab，复用它，调用状态切换
+      const switcher = existing.getComponent(appearTemple);
+      if (switcher && switcher.switchTo) {
+        switcher.switchTo(1); // 可按需求修改为某个 index
+      }
+      return;
+    }
+
+    // 不存在，则清空并创建新场景
+    sceneLayer.removeAllChildren();
+
+    const obj = instantiate(gameManager.prefabMap[prefabName]);
+    obj.name = prefabName; // 关键：设置名字，方便下次识别复用
+    sceneLayer.addChild(obj);
+
+    const switcher = obj.getComponent(appearTemple);
+    if (switcher && switcher.switchTo) {
+      switcher.switchTo(1);
     }
   }
 
