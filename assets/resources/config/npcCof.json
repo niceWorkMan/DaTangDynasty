@@ -1,5 +1,8 @@
 {
     "窥基":{
         "stylePrefab":"dl_kuijiD_prefab"
+    },
+    "玄女":{
+        "stylePrefab":"dl_xuannv_prefab"
     }
 }

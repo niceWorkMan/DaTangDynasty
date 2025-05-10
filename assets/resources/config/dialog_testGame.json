@@ -47,7 +47,12 @@
         "id": "temp_kjcx_06",
         "speaker": "窥基",
         "text": "乃是我师在天竺求法时所获龙树菩萨手书的《心经》原本。师父在世时曾叮嘱，此物拥有极高法力，可除一切恐怖、苦厄，乃对抗妖界的至宝。若结界被突破，圣物只恐有失。我等后辈无法随意进入结界，施主如有办法，还望解救。",
-        "next": "temp_kjcx_07"
+        "next": "temp_kjcx_07",
+        "trigger": {
+          "callBackfuncs": [
+            { "funcName": "CollectionShenYin", "param": ["龙菩萨手书"] }
+          ]
+        }
       },
       {
         "id": "temp_kjcx_07",

@@ -1,5 +1,7 @@
 [
     "prefab/Dialogue",
+    "prefab/Attention_Tips",
     "prefab/npc/dl_kuijiD_prefab",
+    "prefab/npc/dl_xuannv_prefab",
     "prefab/monsterAnim/anim_beimingzhonggu_prefab"
 ]

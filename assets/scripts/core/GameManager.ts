@@ -25,6 +25,7 @@ import {
 import { UIManager } from "./UIManager";
 import { AtlasManager } from "./AtlasManager";
 import { dialogue } from "../dialogue/dialogue";
+import { attetionTips } from "../dialogue/attetionTips";
 
 const { ccclass, property } = _decorator;
 
@@ -128,11 +129,11 @@ export class GameManager extends Component {
 
   private prifabPaths; //配置Prefab的Json
   private animclipPaths; //配置动画Clip的Json
-  private _npcCof;//npc配置
+  private _npcCof; //npc配置
   public get npcCof() {
-    return this._npcCof
+    return this._npcCof;
   }
-  
+  private _shenYinLuCof; //神隐录
 
   private _interactiveInfo; //交互对象配置
   public get interactiveInfo() {
@@ -146,9 +147,12 @@ export class GameManager extends Component {
       this.prifabPaths = prifabPathAsset.json;
       const animclipPathAsset = await this.loadJson("config/animclipsList");
       this.animclipPaths = animclipPathAsset.json;
-      console.log("prifabKeys:", this.prifabPaths);
+      //console.log("prifabKeys:", this.prifabPaths);
       const npcConfAsset = await this.loadJson("config/npcCof");
       this._npcCof = npcConfAsset.json;
+
+      const shenYinLuAsset = await this.loadJson("config/shenYinLuCof");
+      this._shenYinLuCof = shenYinLuAsset.json;
 
       //加载交互道具配置
       const interactiveInfoAsset = await this.loadJson(
@@ -305,10 +309,32 @@ export class GameManager extends Component {
     }
   }
 
-
   //神隐录收集 CallBack
-  CollectionShenYin(any){
-      console.log("神隐录收集",any);
+  CollectionShenYin(nameStr) {
+    console.log("神隐录收集", nameStr);
+
+    const AttetionLayer = this.node
+      .getChildByName("UILayer")
+      .getChildByName("Attetion");
+    console.log(this.prefabMap["Attention_Tips"]);
+    const attentionTips = instantiate(this.prefabMap["Attention_Tips"]);
+    AttetionLayer.addChild(attentionTips);
+    var result=this.getShenYinByName(nameStr)
+    attentionTips
+      .getComponent(attetionTips)
+      .setLable('"' + nameStr + '"' + "收入神隐录---"+result.type);
+    attentionTips.position = new Vec3(0, 432, 0);
+
+
+    //todo 收入神隐录
+    
   }
 
+  getShenYinByName(name) {
+    const result = this._shenYinLuCof.find(el => el.name === name);
+    if (!result) {
+        console.warn(`找不到神印：${name}`);
+    }
+    return result;
+  }
 }

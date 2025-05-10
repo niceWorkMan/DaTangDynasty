@@ -41,15 +41,18 @@
       },
       {
         "__id__": 30
+      },
+      {
+        "__id__": 32
       }
     ],
     "_prefab": {
-      "__id__": 32
+      "__id__": 34
     },
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -470,
+      "y": -520.738,
       "z": 0
     },
     "_lrot": {
@@ -178,7 +181,7 @@
     "_string": "经书乃是神圣之物",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
-    "_actualFontSize": 20.194902548725636,
+    "_actualFontSize": 20.17241379310345,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -620,7 +623,7 @@
     "_string": "\n\n",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.194902548725636,
+    "_actualFontSize": 20.17241379310345,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -766,6 +769,42 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "7euxafqeNIqKboxTSpBb5Z"
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 33
+    },
+    "_alignFlags": 20,
+    "_target": null,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 21.261999999999944,
+    "_horizontalCenter": 0,
+    "_verticalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0,
+    "_alignMode": 2,
+    "_lockFlags": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "9cRE1NN8JDKZDX8+0o8KMp"
   },
   {
     "__type__": "cc.PrefabInfo",

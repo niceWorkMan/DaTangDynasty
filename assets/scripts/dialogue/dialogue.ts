@@ -14,12 +14,18 @@ const { ccclass, property } = _decorator;
 
 @ccclass("dialogue")
 export class dialogue extends Component {
+  //限频点击
+  private isFree = true;
+
   start() {
-    console.log("start----------");
+    console.log("start---");
     this.defaultFirst();
 
     this.node.getChildByName("Tips").on(Node.EventType.TOUCH_START, (event) => {
-      this.next();
+      if (this.isFree==true) {
+        this.next();
+        this.isFree = false;
+      }
     });
   }
 
@@ -84,7 +90,11 @@ export class dialogue extends Component {
   show(itemInfo) {
     this.currentIndex = 0;
     this.node.getChildByName("LabelContent").getComponent(Label).string = "";
-    this.showTextWithTween(itemInfo.text);
+    this.showTextWithTween(itemInfo.text, () => {
+      console.log("文字全部显示完毕");
+      // 👉 在这里做后续操作，比如激活按钮、播放动画等
+      this.isFree=true
+    });
 
     //检查触发
     this.checkTrigger(itemInfo);
@@ -94,12 +104,15 @@ export class dialogue extends Component {
   }
 
   private currentIndex = 0;
-  showTextWithTween(content: string) {
+  showTextWithTween(content: string, onComplete?: () => void) {
     let interval = 0.1; // 每个字显示间隔时间（秒）
 
     // 使用递归 tween 来逐字显示
     const showNextChar = () => {
-      if (this.currentIndex >= content.length) return;
+      if (this.currentIndex >= content.length) {
+        if (onComplete) onComplete();
+        return;
+      }
 
       this.node.getChildByName("LabelContent").getComponent(Label).string +=
         content[this.currentIndex];

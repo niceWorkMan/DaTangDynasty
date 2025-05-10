@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "dl_kuijiD_prefab",
+    "_name": "dl_xuannv_prefab",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "dl_kuijiD_prefab",
+    "_name": "dl_xuannv_prefab",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -34,7 +34,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 40.161,
       "z": 0
     },
     "_lrot": {
@@ -83,8 +83,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 71.668,
-      "y": -116.985,
+      "x": 195.861,
+      "y": -218.098,
       "z": 0
     },
     "_lrot": {
@@ -124,8 +124,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 581,
-      "height": 1085
+      "width": 195,
+      "height": 536
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -136,7 +136,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "20mluX1ZtN4q4PtYjOCL53"
+    "fileId": "fadAtsceJApoJpJoWhr0bZ"
   },
   {
     "__type__": "cc.Sprite",
@@ -161,7 +161,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "8443921b-8860-450d-a5b1-3a27c68ffa02@06354",
+      "__uuid__": "8443921b-8860-450d-a5b1-3a27c68ffa02@f161d",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -181,7 +181,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "e7mX2NlFpAkaD0A6Gbc+NV"
+    "fileId": "1aYF1QkQdP0pBBHPK5HzBh"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -191,7 +191,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "18wV77cWRDxpmnPFGj3H54",
+    "fileId": "batJWRVp9Bd6Gly/uJal7h",
     "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
@@ -222,7 +222,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "d3p26OZEBKfqaKuE0u5a5M"
+    "fileId": "a5W7+nYkZP07RiRbHu8WXr"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -232,7 +232,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "17gFPJ98lCDoiREbOAOapC",
+    "fileId": "d6lBKip09Ks6eWHMO1Pqpy",
     "targetOverrides": null
   }
 ]
