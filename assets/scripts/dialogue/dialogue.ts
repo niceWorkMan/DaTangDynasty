@@ -1,6 +1,15 @@
-import { _decorator, Component, Label, LabelComponent, Node, tween } from "cc";
+import {
+  _decorator,
+  Component,
+  instantiate,
+  Label,
+  LabelComponent,
+  Node,
+  tween,
+} from "cc";
 import { GameManager } from "../core/GameManager";
 import { AtlasManager } from "../core/AtlasManager";
+import { UIManager } from "../core/UIManager";
 const { ccclass, property } = _decorator;
 
 @ccclass("dialogue")
@@ -79,6 +88,9 @@ export class dialogue extends Component {
 
     //检查触发
     this.checkTrigger(itemInfo);
+
+    //背景人物展示
+    this.showNpc(itemInfo);
   }
 
   private currentIndex = 0;
@@ -100,9 +112,10 @@ export class dialogue extends Component {
     showNextChar();
   }
 
+  //执行触发
   checkTrigger(itemInfo) {
     console.log("检查了");
-    
+
     //背景
     var background = itemInfo.background;
     if (background) {
@@ -123,6 +136,28 @@ export class dialogue extends Component {
           console.log("触发:", data);
         });
       }
+
+      //触发方法
+      if (trigger.callBackfuncs) {
+        trigger.callBackfuncs.forEach((Data) => {
+          GameManager.Instance.CallFunctionByName(Data.funcName, Data.param);
+        });
+      }
+    }
+  }
+
+  //展示Npc信息
+  showNpc(itemInfo) {
+    var gameManager = GameManager.Instance;
+    var npcLayer = gameManager.node.getChildByName("NpcLayer");
+    if (itemInfo.speaker == "玩家") {
+      //npcLayer.removeAllChildren();
+    } else {
+      var speaker = itemInfo.speaker;
+      var prefabName = gameManager.npcCof[speaker].stylePrefab;
+      var obj = instantiate(gameManager.prefabMap[prefabName]);
+      npcLayer.removeAllChildren();
+      npcLayer.addChild(obj);
     }
   }
 }

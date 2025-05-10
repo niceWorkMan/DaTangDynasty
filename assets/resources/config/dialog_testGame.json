@@ -1,16 +1,16 @@
 [
   {
     "npcId": "窥基现身",
-    "desc":"场景：寺庙庭院中窥基现身",
+    "desc": "场景：寺庙庭院中窥基现身",
     "dialogues": [
       {
         "id": "temp_kjcx_01",
         "speaker": "玩家",
         "text": "你是……玄奘法师？",
         "next": "temp_kjcx_02",
-        "background":{
-           "plistPath":"spriteRes/appears/appearsBackGround",
-           "spriteName":"temple_0002"
+        "background": {
+          "plistPath": "spriteRes/appears/appearsBackGround",
+          "spriteName": "temple_0002"
         }
       },
 
@@ -18,7 +18,12 @@
         "id": "temp_kjcx_02",
         "speaker": "窥基",
         "text": "不敢，弟子窥基，乃玄奘法师的徒弟，师父圆寂已有多年了。施主有何贵干？",
-        "next": "temp_kjcx_03"
+        "next": "temp_kjcx_03",
+        "trigger": {
+          "callBackfuncs": [
+            { "funcName": "CollectionShenYin", "param": ["窥基"] }
+          ]
+        }
       },
       {
         "id": "temp_kjcx_03",
@@ -73,10 +78,8 @@
         "speaker": "玩家",
         "text": "窥基虽然没了，幸好场景还在，窥基消失前提到了图纸，看来我得赶紧先找到图纸。",
         "next": null,
-        "trigger":{
-           "Interactive":[
-             "stone"
-           ]
+        "trigger": {
+          "Interactive": ["stone"]
         }
       }
     ]

@@ -128,6 +128,11 @@ export class GameManager extends Component {
 
   private prifabPaths; //配置Prefab的Json
   private animclipPaths; //配置动画Clip的Json
+  private _npcCof;//npc配置
+  public get npcCof() {
+    return this._npcCof
+  }
+  
 
   private _interactiveInfo; //交互对象配置
   public get interactiveInfo() {
@@ -142,13 +147,16 @@ export class GameManager extends Component {
       const animclipPathAsset = await this.loadJson("config/animclipsList");
       this.animclipPaths = animclipPathAsset.json;
       console.log("prifabKeys:", this.prifabPaths);
+      const npcConfAsset = await this.loadJson("config/npcCof");
+      this._npcCof = npcConfAsset.json;
+
       //加载交互道具配置
       const interactiveInfoAsset = await this.loadJson(
         "config/interactiveInfo"
       );
       this._interactiveInfo = interactiveInfoAsset.json;
-      console.log("_interactiveInfo:",this._interactiveInfo);
-      
+      console.log("_interactiveInfo:", this._interactiveInfo);
+
       // 加载资源 Bundle
       //const bundleUrl="http://127.0.0.1:80/netRes"
       const bundleUrl = "netRes";
@@ -282,4 +290,25 @@ export class GameManager extends Component {
     anim.defaultClip = clip; // 明确设置 defaultClip
     anim.play(); // 播放
   }
+
+  /**
+   * 通过string函数名调用函数
+   * @param funcName 函数名 string
+   * @param args 函数传参
+   */
+  CallFunctionByName(funcName: string, args: any[] = []) {
+    const func = (this as any)[funcName];
+    if (typeof func === "function") {
+      func.apply(this, args);
+    } else {
+      console.warn(`Function "${funcName}" does not exist.`);
+    }
+  }
+
+
+  //神隐录收集 CallBack
+  CollectionShenYin(any){
+      console.log("神隐录收集",any);
+  }
+
 }
