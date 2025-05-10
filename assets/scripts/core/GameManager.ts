@@ -135,16 +135,16 @@ export class GameManager extends Component {
     return this._dialogContent;
   }
 
-  private prifabPaths; //配置Prefab的Json
+  private prefabPaths; //配置Prefab的Json
   private animclipPaths; //配置动画Clip的Json
   private _npcCof; //npc配置
   public get npcCof() {
     return this._npcCof;
   }
   private _shenYinLuCof; //神隐录
-  private _invetoryRefCof; //道具配置
-  public get invetoryRefCof() {
-    return this._invetoryRefCof;
+  private _inventoryRefCof; //道具配置
+  public get inventoryRefCof() {
+    return this._inventoryRefCof;
   }
   private _interactiveInfo; //交互对象配置
   public get interactiveInfo() {
@@ -155,7 +155,7 @@ export class GameManager extends Component {
     try {
       //加载Prefab JSON
       const prifabPathAsset = await this.loadJson("config/prefabsList");
-      this.prifabPaths = prifabPathAsset.json;
+      this.prefabPaths = prifabPathAsset.json;
       const animclipPathAsset = await this.loadJson("config/animclipsList");
       this.animclipPaths = animclipPathAsset.json;
       //console.log("prifabKeys:", this.prifabPaths);
@@ -168,7 +168,7 @@ export class GameManager extends Component {
       const invetoryRefAsset = await this.loadJson(
         "config/invetoryReflectionCof"
       );
-      this._invetoryRefCof = invetoryRefAsset.json;
+      this._inventoryRefCof = invetoryRefAsset.json;
 
       //加载交互道具配置
       const interactiveInfoAsset = await this.loadJson(
@@ -212,7 +212,7 @@ export class GameManager extends Component {
 
       // 合并所有加载操作：prefab 和 animation clip
       const loadTasks: Promise<void>[] = [
-        ...this.prifabPaths.map((path) => this.loadPrefabAsync(bundle, path)),
+        ...this.prefabPaths.map((path) => this.loadPrefabAsync(bundle, path)),
         ...this.animclipPaths.map((path) =>
           this.loadAnimationClipAsync(bundle, path)
         ),
@@ -340,6 +340,7 @@ export class GameManager extends Component {
     //todo 收入神隐录
   }
 
+  //工具方法 从配置找
   getShenYinByName(name) {
     const result = this._shenYinLuCof.find((el) => el.name === name);
     if (!result) {

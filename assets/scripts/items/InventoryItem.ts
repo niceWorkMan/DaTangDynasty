@@ -17,7 +17,7 @@ export class InventoryItem extends Component {
   }
 
   setIcon(name: string) {
-    var invetoryData = GameManager.Instance.invetoryRefCof[name];
+    var invetoryData = GameManager.Instance.inventoryRefCof[name];
     var spriteCom = this.node
       .getChildByName("InventoryIcon")
       .getComponent(Sprite);
