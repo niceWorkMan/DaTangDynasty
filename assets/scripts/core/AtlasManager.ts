@@ -74,4 +74,39 @@ export class AtlasManager extends Component {
       }
     });
   }
+
+
+
+
+  public loadTexture(sprite:Sprite,plistPath, spriteName) {
+    this._netResBundle.load(plistPath, SpriteAtlas, (err, atlas) => {
+      if (err) {
+        console.error("图集加载失败:", err);
+        return;
+      }
+      console.log("图集加载成功:", atlas);
+
+      // 获取图集中的所有 SpriteFrame
+      const spriteFrames = atlas.getSpriteFrames();
+      // 遍历并打印所有 SpriteFrame 名称
+      spriteFrames.forEach((spriteFrame) => {
+        console.log("SpriteFrame 名称:", spriteFrame.name);
+      });
+
+      // 获取图集中的一帧（确保子图名字写对）
+      const frame = atlas.getSpriteFrame(spriteName); // 子图名，无需扩展名
+      if (frame) {
+        // 设置到节点上的 Sprite 组件
+
+        if (sprite) {
+          sprite.spriteFrame = frame;
+          console.log("SpriteFrame 设置成功");
+        } else {
+          console.warn("未找到 Sprite 组件");
+        }
+      } else {
+        console.warn("图集中未找到指定的 SpriteFrame");
+      }
+    });
+  }
 }

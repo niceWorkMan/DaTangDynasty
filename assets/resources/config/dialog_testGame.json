@@ -15,7 +15,9 @@
         "sceneSwicherPrefab": {
           "name": "Temple",
           "switchIndex": 0
-        }
+        },
+        "desc":"DialogHidden: true测试 需删除",
+        "trigger": { "DialogHidden": true }
       },
 
       {
@@ -88,7 +90,8 @@
         "text": "窥基虽然没了，幸好场景还在，窥基消失前提到了图纸，看来我得赶紧先找到图纸。",
         "next": null,
         "trigger": {
-          "Interactive": ["stone"]
+          "Interactive": ["stone"],
+          "DialogHidden": true
         }
       }
     ]

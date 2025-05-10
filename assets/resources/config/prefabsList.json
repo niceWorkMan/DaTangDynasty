@@ -1,4 +1,5 @@
 [
+    "prefab/interactive/Inventory",
     "prefab/Dialogue",
     "prefab/Attention_Tips",
     "prefab/npc/dl_kuijiD_prefab",

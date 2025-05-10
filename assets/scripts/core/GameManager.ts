@@ -26,6 +26,7 @@ import { UIManager } from "./UIManager";
 import { AtlasManager } from "./AtlasManager";
 import { dialogue } from "../dialogue/dialogue";
 import { attetionTips } from "../dialogue/attetionTips";
+import { InventoryItem } from "../items/InventoryItem";
 
 const { ccclass, property } = _decorator;
 
@@ -62,6 +63,13 @@ export class GameManager extends Component {
   public get animClipMap() {
     return this._animClipMap;
   }
+
+  //当前选中道具名称
+  private _selectItemName=null
+  public get selectItemName() : string {
+    return this._selectItemName
+  }
+  
 
   start() {
     this.addListener();
@@ -134,7 +142,10 @@ export class GameManager extends Component {
     return this._npcCof;
   }
   private _shenYinLuCof; //神隐录
-
+  private _invetoryRefCof; //道具配置
+  public get invetoryRefCof() {
+    return this._invetoryRefCof;
+  }
   private _interactiveInfo; //交互对象配置
   public get interactiveInfo() {
     return this._interactiveInfo;
@@ -150,9 +161,14 @@ export class GameManager extends Component {
       //console.log("prifabKeys:", this.prifabPaths);
       const npcConfAsset = await this.loadJson("config/npcCof");
       this._npcCof = npcConfAsset.json;
-
+      //神隐录配置
       const shenYinLuAsset = await this.loadJson("config/shenYinLuCof");
       this._shenYinLuCof = shenYinLuAsset.json;
+      //道具映射
+      const invetoryRefAsset = await this.loadJson(
+        "config/invetoryReflectionCof"
+      );
+      this._invetoryRefCof = invetoryRefAsset.json;
 
       //加载交互道具配置
       const interactiveInfoAsset = await this.loadJson(
@@ -276,10 +292,6 @@ export class GameManager extends Component {
     dialogueLayer.addChild(d);
     d.position = new Vec3(0, 300, 0);
     d.getComponent(dialogue).currentData = this._dialogContent[sceneIndex];
-
-    setTimeout(() => {
-      // this.PlayShouYaoAnim("anim_beimingzhonggu_clip")
-    }, 3000);
   }
 
   public PlayShouYaoAnim(clipName) {
@@ -319,22 +331,48 @@ export class GameManager extends Component {
     console.log(this.prefabMap["Attention_Tips"]);
     const attentionTips = instantiate(this.prefabMap["Attention_Tips"]);
     AttetionLayer.addChild(attentionTips);
-    var result=this.getShenYinByName(nameStr)
+    var result = this.getShenYinByName(nameStr);
     attentionTips
       .getComponent(attetionTips)
-      .setLable('"' + nameStr + '"' + "收入神隐录---"+result.type);
+      .setLable('"' + nameStr + '"' + "收入神隐录---" + result.type);
     attentionTips.position = new Vec3(0, 432, 0);
 
-
     //todo 收入神隐录
-    
   }
 
   getShenYinByName(name) {
-    const result = this._shenYinLuCof.find(el => el.name === name);
+    const result = this._shenYinLuCof.find((el) => el.name === name);
     if (!result) {
-        console.warn(`找不到神印：${name}`);
+      console.warn(`找不到神印：${name}`);
     }
     return result;
+  }
+
+  //道具栏功能
+  @property(Node)
+  public itemScrollContent: Node = null; // ScrollView 的 content 节点
+
+  collectItem(name) {
+    const itemNode = instantiate(this.prefabMap["Inventory"]);
+    const comp = itemNode.getComponent(InventoryItem);
+    comp.setIcon(name);
+    this.itemScrollContent.addChild(itemNode);
+    //itemNode.position=new Vec3(0,0,0)
+    itemNode.setPosition(new Vec3(0, 0, 0));
+  }
+
+  private _selectedItem: InventoryItem = null;
+
+  selectItem(target: InventoryItem, itemName) {
+    if (this._selectedItem && this._selectedItem !== target) {
+      this._selectedItem.setSelected(false);
+    }
+
+    this._selectedItem = target;
+    target.setSelected(true);
+
+    // 此处你可调用技能释放、显示详情等逻辑
+    //console.log("当前选中道具：", itemName);
+    this._selectItemName=itemName
   }
 }

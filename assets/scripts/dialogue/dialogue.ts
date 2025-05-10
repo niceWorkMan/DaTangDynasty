@@ -6,6 +6,7 @@ import {
   LabelComponent,
   Node,
   tween,
+  UIOpacity,
 } from "cc";
 import { GameManager } from "../core/GameManager";
 import { AtlasManager } from "../core/AtlasManager";
@@ -28,6 +29,18 @@ export class dialogue extends Component {
         this.isFree = false;
       }
     });
+
+    //shine
+    var SpriteNext = this.node.getChildByName("SpriteNext");
+    let opacity = SpriteNext.getComponent(UIOpacity);
+    tween(opacity)
+      .to(1, { opacity: 80 }) // 变透明
+      .to(1, { opacity: 255 }) // 恢复不透明
+      .union() // 合并成一个循环单元
+      .repeatForever()
+      .start();
+
+    this.node.getChildByName("SpriteNext").active = false;
   }
 
   next() {
@@ -97,8 +110,11 @@ export class dialogue extends Component {
       this.isFree = true;
       //检查触发
       this.checkTrigger(itemInfo);
+      //闪烁开始
+      this.node.getChildByName("SpriteNext").active = true;
     });
-
+    //闪烁关闭
+    this.node.getChildByName("SpriteNext").active = false;
     //背景人物展示
     this.showNpc(itemInfo);
     //显示场景
@@ -107,7 +123,7 @@ export class dialogue extends Component {
 
   private currentIndex = 0;
   showTextWithTween(content: string, onComplete?: () => void) {
-    let interval = 0.1; // 每个字显示间隔时间（秒）
+    let interval = 0.001; // 每个字显示间隔时间（秒）
 
     // 使用递归 tween 来逐字显示
     const showNextChar = () => {
@@ -158,6 +174,18 @@ export class dialogue extends Component {
           GameManager.Instance.CallFunctionByName(Data.funcName, Data.param);
         });
       }
+
+      //是否需要隐藏对话框
+      if (trigger.DialogHidden) {
+        //隐藏对话框
+        GameManager.Instance.node
+          .getChildByName("DialogueLayer")
+          .getChildByName("Dialogue").active = false;
+        //清空Npc
+        GameManager.Instance.node
+          .getChildByName("NpcLayer")
+          .removeAllChildren();
+      }
     }
   }
 
@@ -179,7 +207,7 @@ export class dialogue extends Component {
       // ✅ 已经存在该 prefab，复用它，调用状态切换
       const switcher = existing.getComponent(appearTemple);
       if (switcher && switcher.switchTo) {
-        switcher.switchTo(1); // 可按需求修改为某个 index
+        switcher.switchTo(sceneSwicherPrefab.switchIndex); //配置
       }
       return;
     }
@@ -193,7 +221,7 @@ export class dialogue extends Component {
 
     const switcher = obj.getComponent(appearTemple);
     if (switcher && switcher.switchTo) {
-      switcher.switchTo(1);
+      switcher.switchTo(sceneSwicherPrefab.switchIndex);
     }
   }
 

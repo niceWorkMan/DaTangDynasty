@@ -1,0 +1,9 @@
+{
+  "desc": "交互对象对应生成的UI的Sprite资源",
+  "stone": {
+    "ListItem": {
+      "plistPath":  "spriteRes/normal/normal",
+      "spriteName": "item_stone"
+    }
+  }
+}
