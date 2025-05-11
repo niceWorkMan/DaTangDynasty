@@ -198,6 +198,8 @@ export class appearTemple extends NodeSwitcher {
       .getChildByName("Sprite")
       .getChildByName("Button_TuZhi");
     Button_TuZhi.on(Node.EventType.TOUCH_START, (event) => {
+      //隐藏
+      Button_TuZhi.active=false
       //打开图纸弹窗
       PopManager.Instance.OnOpenPopPannel("tuzhi");
       //更新到道具栏
