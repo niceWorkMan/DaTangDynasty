@@ -16,7 +16,7 @@ export class CollectibleItem extends Component {
       GameManager.Instance.collectItem(this.inventoryName);
      // this.node.active = false; // 或 this.node.destroy();
     } else {
-      console.error("没有设置 CollectibleItem 预制的item类型");
+      console.log("没有设置 CollectibleItem 预制的item类型 不操作");
     }
   }
 }
