@@ -57,8 +57,8 @@ export class appearTemple extends NodeSwitcher {
       .getChildByName("Button_Lock");
     if (button_Lock) {
       button_Lock.on(Node.EventType.TOUCH_START, (event) => {
-        console.log("点击:",GameManager.Instance.selectItemName);
-        
+        console.log("点击:", GameManager.Instance.selectItemName);
+
         if (GameManager.Instance.selectItemName == "stone") {
           //开门
           this.node
@@ -68,6 +68,30 @@ export class appearTemple extends NodeSwitcher {
       });
     } else {
       console.warn("未找到 Button_Back0 节点");
+    }
+
+    //点击进入佛堂
+    const Button_In = this.node
+      .getChildByName("TempleDoor")
+      .getChildByName("Button_In");
+    if (Button_In) {
+      Button_In.on(Node.EventType.TOUCH_START, (event) => {
+        this.switchTo(2);
+      });
+    } else {
+      console.warn("未找到 Button_In 节点");
+    }
+
+    //返回大门
+    const Button_Back1 = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Button_Back1");
+    if (Button_Back1) {
+      Button_Back1.on(Node.EventType.TOUCH_START, (event) => {
+        this.switchTo(1);
+      });
+    } else {
+      console.warn("未找到 Button_Back1 节点");
     }
   }
 
