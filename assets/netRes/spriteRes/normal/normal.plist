@@ -4,10 +4,23 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>alpha0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{590,970},{50,50}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,50}}</string>
+                <key>sourceSize</key>
+                <string>{50,50}</string>
+            </dict>
             <key>arrow0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2001,2},{27,26}}</string>
+                <string>{{2016,2},{27,26}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +46,7 @@
             <key>attention_Box_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{976,958},{384,49}}</string>
+                <string>{{1028,956},{384,49}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +59,7 @@
             <key>attention_Box_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{590,970},{384,49}}</string>
+                <string>{{642,960},{384,49}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +72,7 @@
             <key>attention_error.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1362,951},{489,46}}</string>
+                <string>{{1414,951},{489,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +124,7 @@
             <key>btn_Pass_001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1853,41},{109,37}}</string>
+                <string>{{1905,2},{109,37}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,7 +137,7 @@
             <key>clickPick.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1634,2},{201,37}}</string>
+                <string>{{1634,47},{201,37}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +150,7 @@
             <key>clickToNear.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1634,41},{194,36}}</string>
+                <string>{{1837,80},{194,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +163,7 @@
             <key>clickUse.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1853,2},{146,37}}</string>
+                <string>{{1895,41},{146,37}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -345,7 +358,7 @@
             <key>usedItem.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1408,745},{259,43}}</string>
+                <string>{{1634,2},{259,43}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -365,7 +378,7 @@
             <key>size</key>
             <string>{2048,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:0e5f81286c3601e3d3d4b77c4652e034:700c8a0ec374e64b9401da5bdbd3ea1d:042629d1e4b0ed6696f89f3e5b9b245e$</string>
+            <string>$TexturePacker:SmartUpdate:c2b80ea1568b4d7b7c27c0195378078b:f843f57bfe5b773b2b6d8196499992ef:042629d1e4b0ed6696f89f3e5b9b245e$</string>
             <key>textureFileName</key>
             <string>normal.png</string>
         </dict>

@@ -93,6 +93,32 @@ export class appearTemple extends NodeSwitcher {
     } else {
       console.warn("未找到 Button_Back1 节点");
     }
+
+    //点击经书
+    const Button_JingShuPop = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Button_JingShuPop");
+    Button_JingShuPop.active = false;
+    const Button_JingShu = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Button_JingShu");
+    if (Button_JingShu) {
+      Button_JingShu.on(Node.EventType.TOUCH_START, (event) => {
+        //展示经书
+        Button_JingShuPop.active = true;
+      });
+    } else {
+      console.warn("未找到 Button_Back1 节点");
+    }
+
+    //经书关闭
+    if (Button_JingShuPop) {
+      Button_JingShuPop.on(Node.EventType.TOUCH_START, (event) => {
+        Button_JingShuPop.active = false;
+      });
+    } else {
+      console.warn("未找到 Button_Back1 节点");
+    }
   }
 
   update(deltaTime: number) {}
