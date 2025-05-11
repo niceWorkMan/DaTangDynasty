@@ -17,7 +17,7 @@
           "switchIndex": 0
         },
         "desc":"DialogHidden: true测试 需删除",
-        "trigger": { "DialogHidden": true }
+        "triggerDelect": { "DialogHidden": true }
       },
 
       {
@@ -91,7 +91,10 @@
         "next": null,
         "trigger": {
           "Interactive": ["stone"],
-          "DialogHidden": true
+          "DialogHidden": true,
+          "callBackfuncs": [
+            { "funcName": "KuiJiInteractiveStart", "param": [] }
+          ]
         }
       }
     ]

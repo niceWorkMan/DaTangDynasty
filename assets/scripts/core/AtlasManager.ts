@@ -77,20 +77,21 @@ export class AtlasManager extends Component {
 
 
 
-
+ 
+  //加载
   public loadTexture(sprite:Sprite,plistPath, spriteName) {
     this._netResBundle.load(plistPath, SpriteAtlas, (err, atlas) => {
       if (err) {
         console.error("图集加载失败:", err);
         return;
       }
-      console.log("图集加载成功:", atlas);
+      //console.log("图集加载成功:", atlas);
 
       // 获取图集中的所有 SpriteFrame
       const spriteFrames = atlas.getSpriteFrames();
       // 遍历并打印所有 SpriteFrame 名称
       spriteFrames.forEach((spriteFrame) => {
-        console.log("SpriteFrame 名称:", spriteFrame.name);
+        //console.log("SpriteFrame 名称:", spriteFrame.name);
       });
 
       // 获取图集中的一帧（确保子图名字写对）

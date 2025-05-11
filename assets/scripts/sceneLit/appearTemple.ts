@@ -1,4 +1,4 @@
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node, tween, Vec3 } from "cc";
 import { NodeSwitcher } from "../core/NodeSwitcher";
 import { PopManager } from "../core/PopManager";
 import { GameManager } from "../core/GameManager";
@@ -119,6 +119,90 @@ export class appearTemple extends NodeSwitcher {
     } else {
       console.warn("未找到 Button_Back1 节点");
     }
+
+    //点击佛珠
+    const Button_fozhu = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Button_fozhu");
+    if (Button_fozhu) {
+      Button_fozhu.on(Node.EventType.TOUCH_START, (event) => {
+        Button_fozhu.active = false;
+        GameManager.Instance.collectItem("fozhu");
+        PopManager.Instance.OnOpenPopPannel("fozhu");
+      });
+    } else {
+      console.warn("未找到 Button_Back1 节点");
+    }
+
+    //点击佛像手
+    const Button_Handle = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Sprite_FoXiang")
+      .getChildByName("Button_Handle");
+
+    const foxiang = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Sprite_FoXiang");
+    if (Button_Handle) {
+      Button_Handle.on(Node.EventType.TOUCH_START, (event) => {
+        if (GameManager.Instance.selectItemName == "fozhu") {
+          const targetPos = new Vec3(
+            foxiang.position.x + 250,
+            foxiang.position.y,
+            foxiang.position.z
+          );
+          tween(foxiang)
+            .to(0.5, { position: targetPos }, { easing: "quadOut" }) // 动画时长0.5秒
+            .start();
+        }
+      });
+    } else {
+      console.warn("未找到 Button_Handle 节点");
+    }
+
+    //点击宝箱
+    const Button_Box = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("Button_Box");
+    if (Button_Box) {
+      Button_Box.on(Node.EventType.TOUCH_START, (event) => {
+        //Button_Box.active = false;
+        //打开宝箱游戏
+        this.node.getChildByName("TempleIn").getChildByName("BoxGame").active =
+          true;
+      });
+    } else {
+      console.warn("未找到 Button_Back1 节点");
+    }
+
+    //关闭放大宝箱
+
+    const BoxGame = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("BoxGame");
+    if (BoxGame) {
+      BoxGame.on(Node.EventType.TOUCH_START, (event) => {
+        //Button_Box.active = false;
+        //打开宝箱游戏
+        this.node.getChildByName("TempleIn").getChildByName("BoxGame").active =
+          false;
+      });
+    } else {
+      console.warn("未找到 BoxGame 节点");
+    }
+
+    //点击宝箱内图纸
+    const Button_TuZhi = this.node
+      .getChildByName("TempleIn")
+      .getChildByName("BoxGame")
+      .getChildByName("Sprite")
+      .getChildByName("Button_TuZhi");
+    Button_TuZhi.on(Node.EventType.TOUCH_START, (event) => {
+      //打开图纸弹窗
+      PopManager.Instance.OnOpenPopPannel("tuzhi");
+      //更新到道具栏
+      GameManager.Instance.collectItem("tuzhi");
+    });
   }
 
   update(deltaTime: number) {}

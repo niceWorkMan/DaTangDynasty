@@ -28,5 +28,7 @@ export class PopManager extends Component {
     const d = instantiate(GameManager.Instance.prefabMap[GameManager.Instance.inventoryRefCof.popPrefab]);
     this.node.addChild(d)
     d.getComponent(PopItem).initPopInfo(name)
+
+    //todo  记录获取道具
   }
 }

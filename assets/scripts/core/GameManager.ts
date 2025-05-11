@@ -65,11 +65,10 @@ export class GameManager extends Component {
   }
 
   //当前选中道具名称
-  private _selectItemName=null
-  public get selectItemName() : string {
-    return this._selectItemName
+  private _selectItemName = null;
+  public get selectItemName(): string {
+    return this._selectItemName;
   }
-  
 
   start() {
     this.addListener();
@@ -340,6 +339,22 @@ export class GameManager extends Component {
     //todo 收入神隐录
   }
 
+  //窥基开始交互
+  KuiJiInteractiveStart() {
+    //显示石头和大门
+    var Temple = this.node
+      .getChildByName("SceneLayer")
+      .getChildByName("Temple");
+    if (Temple) {
+      Temple.getChildByName("TempleOut").getChildByName("Button_Stone").active =
+        true;
+      Temple.getChildByName("TempleOut").getChildByName("Button_Door").active =
+        true;
+    } else {
+      console.log("当前触发场景不存在   窥基Temple");
+    }
+  }
+
   //工具方法 从配置找
   getShenYinByName(name) {
     const result = this._shenYinLuCof.find((el) => el.name === name);
@@ -374,6 +389,6 @@ export class GameManager extends Component {
 
     // 此处你可调用技能释放、显示详情等逻辑
     //console.log("当前选中道具：", itemName);
-    this._selectItemName=itemName
+    this._selectItemName = itemName;
   }
 }

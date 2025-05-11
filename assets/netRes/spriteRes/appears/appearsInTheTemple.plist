@@ -7,7 +7,7 @@
             <key>itc_itt_Table.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1141,2},{615,457}}</string>
+                <string>{{2,2},{615,457}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>itc_itt__mh.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1041,396},{64,64}}</string>
+                <string>{{512,1039},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>itc_itt_door.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{616,1399},{423,497}}</string>
+                <string>{{619,2},{423,497}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>itc_itt_fozhu.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{523,1399},{76,36}}</string>
+                <string>{{989,952},{76,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>itc_itt_guanYin.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,777},{371,677}}</string>
+                <string>{{616,501},{371,677}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>itc_itt_lock.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{943,1898},{66,105}}</string>
+                <string>{{989,1097},{66,105}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>itc_itt_lockLight.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{875,1898},{66,105}}</string>
+                <string>{{989,990},{66,105}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -95,36 +95,75 @@
                 <key>sourceSize</key>
                 <string>{66,105}</string>
             </dict>
-            <key>itc_itt_mh2.png</key>
+            <key>itc_itt_mh_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{375,777},{489,620}}</string>
+                <string>{{726,1542},{360,360}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{489,620}}</string>
+                <string>{{0,0},{360,360}}</string>
                 <key>sourceSize</key>
-                <string>{489,620}</string>
+                <string>{360,360}</string>
             </dict>
-            <key>itc_itt_mh3.png</key>
+            <key>itc_itt_mh_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{750,773}}</string>
+                <string>{{364,1542},{360,360}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{750,773}}</string>
+                <string>{{0,0},{360,360}}</string>
                 <key>sourceSize</key>
-                <string>{750,773}</string>
+                <string>{360,360}</string>
             </dict>
-            <key>itc_itt_num_.png</key>
+            <key>itc_itt_mh_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{931,149},{63,69}}</string>
+                <string>{{2,1542},{360,360}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{360,360}}</string>
+                <key>sourceSize</key>
+                <string>{360,360}</string>
+            </dict>
+            <key>itc_itt_mh_3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{559,1180},{360,360}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{360,360}}</string>
+                <key>sourceSize</key>
+                <string>{360,360}</string>
+            </dict>
+            <key>itc_itt_mh_4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,1039},{360,360}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{360,360}}</string>
+                <key>sourceSize</key>
+                <string>{360,360}</string>
+            </dict>
+            <key>itc_itt_num_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{986,1275},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +176,7 @@
             <key>itc_itt_num_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{866,149},{63,69}}</string>
+                <string>{{921,1251},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +189,7 @@
             <key>itc_itt_num_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,144},{63,69}}</string>
+                <string>{{986,1204},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -163,7 +202,7 @@
             <key>itc_itt_num_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{931,78},{63,69}}</string>
+                <string>{{921,1180},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +215,7 @@
             <key>itc_itt_num_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{866,78},{63,69}}</string>
+                <string>{{494,1176},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -189,7 +228,7 @@
             <key>itc_itt_num_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,73},{63,69}}</string>
+                <string>{{364,1236},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -202,7 +241,7 @@
             <key>itc_itt_num_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{754,2},{63,69}}</string>
+                <string>{{429,1176},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -215,7 +254,7 @@
             <key>itc_itt_num_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1076,1974},{63,69}}</string>
+                <string>{{364,1165},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -228,7 +267,7 @@
             <key>itc_itt_num_9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1011,1974},{63,69}}</string>
+                <string>{{489,1105},{63,69}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -241,7 +280,7 @@
             <key>itc_itt_outDoor.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1041,199},{97,195}}</string>
+                <string>{{989,698},{97,195}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -254,7 +293,7 @@
             <key>itc_itt_outDoor_Light.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1041,2},{97,195}}</string>
+                <string>{{989,501},{97,195}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -267,7 +306,7 @@
             <key>itc_itt_shouJuan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{375,1399},{146,48}}</string>
+                <string>{{364,1039},{146,48}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -280,7 +319,7 @@
             <key>itc_itt_shouJuan2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{616,1898},{257,133}}</string>
+                <string>{{2,1401},{257,133}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -293,7 +332,7 @@
             <key>itc_itt_shouJuan4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1456},{612,576}}</string>
+                <string>{{2,461},{612,576}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -306,7 +345,7 @@
             <key>itc_itt_stone.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{866,2},{123,74}}</string>
+                <string>{{364,1089},{123,74}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -319,15 +358,15 @@
             <key>itc_itt_stoneLight.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1011,1898},{123,74}}</string>
+                <string>{{989,895},{77,55}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{123,74}}</string>
+                <string>{{0,0},{77,55}}</string>
                 <key>sourceSize</key>
-                <string>{123,74}</string>
+                <string>{77,55}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -337,9 +376,9 @@
             <key>realTextureFileName</key>
             <string>appearsInTheTemple.png</string>
             <key>size</key>
-            <string>{2048,2048}</string>
+            <string>{1088,1904}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f16f2b687fe25bf607d8822eceb95ccf:8bc5c5d711aae4021a438f1afa1a2aa8:fbabe6384cf43245535d1a9cb1a23934$</string>
+            <string>$TexturePacker:SmartUpdate:6b2f97a13364be2388f7a137dbe93346:1e5fcf22cee2e45714c5e4a030e18951:fbabe6384cf43245535d1a9cb1a23934$</string>
             <key>textureFileName</key>
             <string>appearsInTheTemple.png</string>
         </dict>
