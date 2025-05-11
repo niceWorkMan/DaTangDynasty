@@ -1,5 +1,6 @@
 import { _decorator, Component, Node } from "cc";
 import { NodeSwitcher } from "../core/NodeSwitcher";
+import { PopManager } from "../core/PopManager";
 const { ccclass, property } = _decorator;
 
 @ccclass("appearTemple")
@@ -13,6 +14,8 @@ export class appearTemple extends NodeSwitcher {
     if (buttonStone) {
       buttonStone.on(Node.EventType.TOUCH_START, (event) => {
         event.target.active = false;
+        //打开弹窗
+        PopManager.Instance.OnOpenPopPannel("stone")
       });
     } else {
       console.warn("未找到 Button_Stone 节点");

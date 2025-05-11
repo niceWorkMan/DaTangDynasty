@@ -1,6 +1,7 @@
 [
     "prefab/interactive/Inventory",
     "prefab/Dialogue",
+    "prefab/pop/PopGet",
     "prefab/Attention_Tips",
     "prefab/npc/dl_kuijiD_prefab",
     "prefab/npc/dl_xuannv_prefab",

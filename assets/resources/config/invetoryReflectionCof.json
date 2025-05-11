@@ -1,9 +1,34 @@
 {
   "desc": "交互对象对应生成的UI的Sprite资源",
+  "popPrefab": "PopGet",
   "stone": {
     "ListItem": {
-      "plistPath":  "spriteRes/normal/normal",
+      "plistPath": "spriteRes/normal/normal",
       "spriteName": "item_stone"
+    },
+    "PopBack": {
+      "plistPath": "spriteRes/normal/normal",
+      "spriteName": "pop_shitou_back"
+    }
+  },
+  "fozhu": {
+    "ListItem": {
+      "plistPath": "spriteRes/normal/normal",
+      "spriteName": "item_fz"
+    },
+    "PopBack": {
+      "plistPath": "spriteRes/normal/normal",
+      "spriteName": "pop_fozhu_back"
+    }
+  },
+  "tuzhi": {
+    "ListItem": {
+      "plistPath": "spriteRes/normal/normal",
+      "spriteName": "item_tuzhi"
+    },
+    "PopBack": {
+      "plistPath": "spriteRes/normal/normal",
+      "spriteName": "pop_tuzhi_back"
     }
   }
 }
