@@ -130,6 +130,10 @@ export class dialogue extends Component {
     this.showNpc(itemInfo);
     //显示场景
     this.showScene(itemInfo);
+    //是否需要显示道具栏
+    var ishidePackage = itemInfo.hidePackage == true ? false : true;
+    GameManager.Instance.node.getChildByName("PackageLayer").active =
+      ishidePackage;
   }
 
   private currentIndex = 0;
@@ -163,7 +167,7 @@ export class dialogue extends Component {
       .getChildByName("Dialogue").active = false;
     //清空Npc
     GameManager.Instance.node.getChildByName("NpcLayer").removeAllChildren();
-     //生成配置场景
+    //生成配置场景
     this.showScene(itemInfo.clickTriggers);
   }
 

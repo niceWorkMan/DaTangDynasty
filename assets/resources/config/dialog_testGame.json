@@ -14,10 +14,11 @@
         },
         "clickTriggers": {
           "sceneSwicherPrefab": {
-            "name": "Temple",
+            "name": "DrawCard",
             "switchIndex": 0
           }
-        }
+        },
+        "hidePackage": true
       },
       {
         "id": "chouka_02",
