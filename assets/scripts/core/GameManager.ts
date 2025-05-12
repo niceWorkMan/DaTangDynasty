@@ -92,8 +92,8 @@ export class GameManager extends Component {
 
   click() {
     AtlasManager.Instance.loadBackGround(
-      "spriteRes/appears/appearsBackGround",
-      "AnDuGeOutSide"
+      "spriteRes/background/background_part1",
+      "background_006"
     );
   }
 

@@ -4,6 +4,7 @@ import {
   instantiate,
   Label,
   LabelComponent,
+  log,
   Node,
   tween,
   UIOpacity,
@@ -24,8 +25,18 @@ export class dialogue extends Component {
     this.defaultFirst();
 
     this.node.getChildByName("Tips").on(Node.EventType.TOUCH_START, (event) => {
+      if (!this.oneLine) return;
       if (this.isFree == true) {
-        this.next();
+        //限频
+        console.log("this.oneLine", this.oneLine);
+        //点击触发特殊事件
+        if (this.oneLine.clickTriggers) {
+          this.checkClick(this.oneLine);
+        } else {
+          //点击到下一句对话
+          this.next();
+        }
+
         this.isFree = false;
       }
     });
@@ -141,6 +152,19 @@ export class dialogue extends Component {
     };
 
     showNextChar();
+  }
+
+  //检测点击触发事件
+  checkClick(itemInfo) {
+    //一般需要隐藏当前对话和Npc
+    //隐藏对话框
+    GameManager.Instance.node
+      .getChildByName("DialogueLayer")
+      .getChildByName("Dialogue").active = false;
+    //清空Npc
+    GameManager.Instance.node.getChildByName("NpcLayer").removeAllChildren();
+     //生成配置场景
+    this.showScene(itemInfo.clickTriggers);
   }
 
   //执行触发

@@ -1087,7 +1087,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "d08e9265-13f2-4462-8d0c-43eb610204bd@57244",
+      "__uuid__": "2ac49238-5a5b-48a4-ad3f-24dd5fadaaf6@0e0a7",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -1141,7 +1141,7 @@
         "__id__": 125
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 133
@@ -1430,7 +1430,7 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 119.98563013321315,
+      "width": 119.97079243479433,
       "height": 50.4
     }
   },
@@ -1450,7 +1450,7 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 151.98563013321314,
+      "width": 151.97079243479433,
       "height": 100
     }
   },
@@ -1470,7 +1470,7 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": -59.99281506660657,
+      "x": -59.98539621739717,
       "y": 0,
       "z": 0
     }
@@ -1885,7 +1885,7 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 119.98563013321315,
+      "width": 119.97079243479433,
       "height": 50.4
     }
   },
@@ -1905,7 +1905,7 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 151.98563013321314,
+      "width": 151.97079243479433,
       "height": 100
     }
   },
@@ -1925,7 +1925,7 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": -59.99281506660657,
+      "x": -59.98539621739717,
       "y": 0,
       "z": 0
     }
@@ -2417,7 +2417,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "d08e9265-13f2-4462-8d0c-43eb610204bd@79579",
+      "__uuid__": "faada530-bb2a-46ba-a91b-3acf0bc02e2a@eb259",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -2483,7 +2483,7 @@
         "__id__": 209
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 299
@@ -6327,7 +6327,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "d08e9265-13f2-4462-8d0c-43eb610204bd@7ce6e",
+      "__uuid__": "faada530-bb2a-46ba-a91b-3acf0bc02e2a@56ab8",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -6429,7 +6429,6 @@
       "__id__": 0
     },
     "fileId": "81z13BUo5Du5LCylbde3Rr",
-    "instance": null,
     "targetOverrides": [],
     "nestedPrefabInstanceRoots": [
       {

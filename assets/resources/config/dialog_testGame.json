@@ -1,6 +1,40 @@
 [
   {
-    "npcId": "窥基现身",
+    "id": "抽卡",
+    "desc": "抽卡流程",
+    "dialogues": [
+      {
+        "id": "chouka_01",
+        "speaker": "玄女",
+        "text": "别纠结，这只是你在STP重塑的历史时空里的虚拟形象，以方便你执任务。",
+        "next": "chouka_02",
+        "background": {
+          "plistPath": "spriteRes/background/background_part1",
+          "spriteName": "background_001"
+        },
+        "clickTriggers": {
+          "sceneSwicherPrefab": {
+            "name": "Temple",
+            "switchIndex": 0
+          }
+        }
+      },
+      {
+        "id": "chouka_02",
+        "speaker": "玄女",
+        "text": "玄女：现在请抽取新人入职礼包，可以帮助你更好地完成工作，可以抽3次哦。",
+        "next": "chouka_03"
+      },
+      {
+        "id": "chouka_03",
+        "speaker": "玄女",
+        "text": "玄女：抽卡3。",
+        "next": null
+      }
+    ]
+  },
+  {
+    "id": "窥基现身",
     "desc": "场景：寺庙庭院中窥基现身",
     "dialogues": [
       {
@@ -9,14 +43,14 @@
         "text": "你是……玄奘法师？",
         "next": "temp_kjcx_02",
         "background": {
-          "plistPath": "spriteRes/appears/appearsBackGround",
-          "spriteName": "temple_0002"
+          "plistPath": "spriteRes/background/background_part1",
+          "spriteName": "background_006"
         },
         "sceneSwicherPrefab": {
           "name": "Temple",
           "switchIndex": 0
         },
-        "desc":"DialogHidden: true测试 需删除",
+        "desc": "DialogHidden: true测试 需删除",
         "triggerDelect": { "DialogHidden": true }
       },
 
